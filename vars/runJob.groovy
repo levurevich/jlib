@@ -1,8 +1,8 @@
 #!groove
 
-def call(String path, List jobParameters) {
+def call(String path) {
     try {
-        def outSideJob = build job: path, parameters: jobParameters
+        def outSideJob = build job: path
         println 'last 5000 lines of build'
         def subLog = outSideJob.getRawBuild().getLog(5000)
         def stringLog = subLog.join("\n")
